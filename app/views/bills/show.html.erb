@@ -18,7 +18,13 @@
       <dd><img src="<%= @bill.proof %>" class="img-responsive"></dd>
 
       <dt>User</dt>
-      <dd><%= @bill.user_id %></dd>
+      <dd>
+        <% if @bill.user.present? %>
+          <a href="/users/<%= @bill.user_id %>">
+            <%= @bill.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -23,7 +23,13 @@
         <td><%= bill.balance %></td>
         <td><%= bill.paid %></td>
         <td><img src='<%= bill.proof %>' class='img-responsive'></td>
-        <td><%= bill.user.email %></td>
+        <td>
+          <% if bill.user.present? %>
+            <a href="/users/<%= bill.user.id %>">
+              <%= bill.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/bills/<%= bill.id %>" class="btn btn-primary">Show</a>
           <a href="/bills/<%= bill.id %>/edit" class="btn btn-warning">Edit</a>
