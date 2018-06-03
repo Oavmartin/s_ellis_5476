@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>
+    Bills
+    <a href="/bills/new" class="btn btn-lg btn-success">New Bill</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Month</th>
+        <th>Balance</th>
+        <th>Paid</th>
+        <th>Proof</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @bills.each do |bill| %>
+      <tr>
+        <td><%= bill.month %></td>
+        <td><%= bill.balance %></td>
+        <td><%= bill.paid %></td>
+        <td><%= bill.proof %></td>
+        <td><%= bill.user_id %></td>
+        <td>
+          <a href="/bills/<%= bill.id %>" class="btn btn-primary">Show</a>
+          <a href="/bills/<%= bill.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_bill/<%= bill.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

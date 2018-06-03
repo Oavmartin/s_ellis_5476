@@ -1,0 +1,72 @@
+<!-- Validation failure messages -->
+<% if @bill.errors.any? %>
+  <% @bill.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Bill #<%= @bill.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_bill/<%= @bill.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for month -->
+      <div class="form-group">
+        <label for="month" class="control-label">
+          Month
+        </label>
+
+        <input type="text" id="month" name="month" placeholder="Month" class="form-control" value="<%= @bill.month %>">
+      </div>
+
+      <!-- Label and input for balance -->
+      <div class="form-group">
+        <label for="balance" class="control-label">
+          Balance
+        </label>
+
+        <input type="text" id="balance" name="balance" placeholder="Balance" class="form-control" value="<%= @bill.balance %>">
+      </div>
+
+      <!-- Label and input for paid -->
+      <div class="checkbox">
+        <label for="paid">
+          <input type="checkbox" id="paid" name="paid" value="1" <%= "checked" if @bill.paid %>>
+          Paid
+        </label>
+      </div>
+
+      <!-- Label and input for proof -->
+      <div class="form-group">
+        <label for="proof" class="control-label">
+          Proof
+        </label>
+
+        <input type="text" id="proof" name="proof" placeholder="Proof" class="form-control" value="<%= @bill.proof %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @bill.user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Bill
+      </button>
+      or
+      <a href="/bills/<%= @bill.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

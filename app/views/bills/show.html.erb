@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Bill #<%= @bill.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Month</dt>
+      <dd><%= @bill.month %></dd>
+
+      <dt>Balance</dt>
+      <dd><%= @bill.balance %></dd>
+
+      <dt>Paid</dt>
+      <dd><%= @bill.paid %></dd>
+
+      <dt>Proof</dt>
+      <dd><%= @bill.proof %></dd>
+
+      <dt>User</dt>
+      <dd><%= @bill.user_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/bills" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/bills/<%= @bill.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_bill/<%= @bill.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
