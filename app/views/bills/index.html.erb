@@ -22,7 +22,7 @@
         <td><%= bill.month %></td>
         <td><%= bill.balance %></td>
         <td><%= bill.paid %></td>
-        <td><%= bill.proof %></td>
+        <td><img src='<%= bill.proof %>' class='img-responsive'></td>
         <td><%= bill.user.email %></td>
         <td>
           <a href="/bills/<%= bill.id %>" class="btn btn-primary">Show</a>

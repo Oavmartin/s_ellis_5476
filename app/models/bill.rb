@@ -1,4 +1,6 @@
 class Bill < ApplicationRecord
+  mount_uploader :proof, ProofUploader
+
   # Direct associations
 
   belongs_to :user,
