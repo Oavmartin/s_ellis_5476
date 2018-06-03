@@ -23,7 +23,7 @@
         <td><%= bill.balance %></td>
         <td><%= bill.paid %></td>
         <td><%= bill.proof %></td>
-        <td><%= bill.user_id %></td>
+        <td><%= bill.user.email %></td>
         <td>
           <a href="/bills/<%= bill.id %>" class="btn btn-primary">Show</a>
           <a href="/bills/<%= bill.id %>/edit" class="btn btn-warning">Edit</a>
